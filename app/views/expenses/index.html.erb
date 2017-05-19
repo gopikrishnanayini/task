@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Theme Made By www.w3schools.com - No Copyright -->
+	<title>Indur Dental Lab</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head><br>
+
+
+<div class="container">
+	<div class="row"><br>
+		<h1>Listing the table </h1>
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>Accomidation</th>
+				<th>Travelling</th>
+				<th>Food</th>
+				<th>Othercharges</th>
+			</tr>
+			<% @expenses.each do |expense| %>
+			<tr>
+				<td><%= expense.accomidation %></td>
+				<td><%= expense.travelling %></td>
+				<td><%= expense.food %></td>
+				<td><%= expense.othercharges %></td>
+				<td><%= link_to "show", expense_path(expense) %></td>
+				<td><%= link_to "edit", edit_expense_path(expense) %></td>
+				<td><%= link_to "destroy", expense_path(expense), 
+				         :method => :delete, data: { clear: "Are you sure?"} %></td>
+				         
+			</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+<%= link_to "new expense", new_expense_path %>
