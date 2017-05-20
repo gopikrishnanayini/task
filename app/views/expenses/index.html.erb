@@ -13,7 +13,7 @@
 
 <div class="container">
 	<div class="row"><br>
-		<h1>Listing the table </h1>
+		<h1>Listing the Expenses</h1>
 		<table class="table table-bordered table-striped">
 			<tr>
 				<th>Accomidation</th>
@@ -39,3 +39,4 @@
 	</div>
 </div>
 <%= link_to "new expense", new_expense_path %>
+<%= link_to "Download", export_pdf_path(:format => 'pdf') %>

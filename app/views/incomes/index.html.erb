@@ -13,19 +13,19 @@
 
 <div class="container">
 	<div class="row"><br>
-		<h1>Listing the table </h1>
+		<h1>Listing the income </h1>
 		<table class="table table-bordered table-striped">
 			<tr>
 				<th>Source</th>
 				<th>Income</th>
-				<th>Total income </th>
+				<th>Bankstatement</th>
 			</tr>
 			<% @incomes.each do |income| %>
 			<tr>
 				<td><%= income.source %></td>
 				<td><%= income.income %></td>
-				<td><%= income.total_income %></td>
-				<td><%= link_to "show", income_path(income) %></td>
+				 <td><%= income.bankstatement %></td>
+  				<td><%= link_to "show", income_path(income) %></td>
 				<td><%= link_to "edit", edit_income_path(income) %></td>
 				<td><%= link_to "destroy", income_path(income), 
 				         :method => :delete, data: { clear: "Are you sure?"} %></td>
@@ -36,5 +36,6 @@
 		</table>
 	</div>
 </div>
+
 <%= link_to "new income", new_income_path %>
-<%= link_to "Download_pdf", download_pdf_path(:format => 'pdf') %>
+<%= link_to "Download", download_pdf_path(:format => 'pdf') %>

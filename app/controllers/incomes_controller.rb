@@ -73,6 +73,6 @@ class IncomesController < ApplicationController
       @income = Income.find(params[:id])
     end
 	def income_params
-		params.require(:income).permit(:source, :income, :total_income)
+		params.require(:income).permit(:source, :income, :bankstatement)
 	end
 end

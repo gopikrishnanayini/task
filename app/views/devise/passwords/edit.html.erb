@@ -1,3 +1,13 @@
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head><br>
+<div class="container">
+  <div class="row"><br>
 <h2>Change your password</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
@@ -21,5 +31,6 @@
     <%= f.submit "Change my password" %>
   </div>
 <% end %>
-
+</div>
+</div>
 <%= render "devise/shared/links" %>

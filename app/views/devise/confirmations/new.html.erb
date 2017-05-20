@@ -1,3 +1,9 @@
+<link rel="stylesheet" href="/assets/skel.css" />
+<link rel="stylesheet" href="/assets/style.css" />
+<link rel="stylesheet" href="/assets/styl-wide.css" />
+<br>
+<div class="container">
+	<div class="row"><br>
 <h2>Resend confirmation instructions</h2>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
@@ -12,5 +18,7 @@
     <%= f.submit "Resend confirmation instructions" %>
   </div>
 <% end %>
+</div>
+</div>
 
 <%= render "devise/shared/links" %>

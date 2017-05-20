@@ -2,7 +2,31 @@ class ExpensesController < ApplicationController
 	 before_action :set_expense, only: [:show, :edit, :update, :destroy]
 	def index
 		@expenses = Expense.all
+		require "prawn"
+		require "prawn/table"
+
+		def export_pdf
+			@expenses = Expense.all
+			respond_to do |format|
+				format.pdf do
+					pdf = Prawn::Document.new
+					table_data = Array.new
+					table_data << ["Accomidation", "travelling", "Food", "Othercharges"]
+					@expenses.each do |i|
+						table_data << [i.accomidation, i.travelling, i.food, i.othercharges ]
+					end
+					pdf.table(table_data, :width => 500, :cell_style => { :inline_format => true })
+					send_data pdf.render, filename: 'test.pdf', type: 'application/pdf', :disposition => 'inline'
+				end
+			end
+		end
 	end
+	def export_pdf
+    pdf = WickedPdf.new.pdf_from_string(
+    render_to_string(‘expenses/index.html.erb’, layout: false)
+    )
+    send_data pdf, :filename => “expense.pdf”, :type => “application/pdf”, :disposition => “attachment”
+    end
 	def new
 		@expense = Expense.new
 	end

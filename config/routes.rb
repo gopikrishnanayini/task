@@ -2,15 +2,17 @@ Rails.application.routes.draw do
 
 
   get "incomes/download_pdf" => "incomes#download_pdf", :as => 'download_pdf'
-  get "expenses/download_pd" => "expenses#download_pd", :as => 'download_pd'
-  get 'expenses/new'
+
+  get "expenses/export_pdf" => "expenses#export_pdf", :as => 'export_pdf'
+
+devise_for :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   
-  root :to => 'expenses#index'
+  root :to => 'homes#index'
  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -19,9 +21,10 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
+   resources :homes
 
   resources :expenses do
-  get :download_expense
+  get :download_expenses
   end
   resources :incomes do
   get :download_incomes
