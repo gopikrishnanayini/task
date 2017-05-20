@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
 
-
+  get "incomes/download_pdf" => "incomes#download_pdf", :as => 'download_pdf'
+  get "expenses/download_pd" => "expenses#download_pd", :as => 'download_pd'
   get 'expenses/new'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -18,10 +19,20 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :incomes
-  resources :expenses
 
+  resources :expenses do
+  get :download_expense
+  end
+  resources :incomes do
+  get :download_incomes
+  end
+   resources :expenses do
+   resources :comments
+  end
 
+  resources :incomes do
+    resources :comments
+  end
   # Example resource route with options:
   #   resources :products do
   #     member do

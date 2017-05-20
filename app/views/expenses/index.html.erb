@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<!-- Theme Made By www.w3schools.com - No Copyright -->
-	<title>Indur Dental Lab</title>
+	<title></title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -31,6 +31,7 @@
 				<td><%= link_to "edit", edit_expense_path(expense) %></td>
 				<td><%= link_to "destroy", expense_path(expense), 
 				         :method => :delete, data: { clear: "Are you sure?"} %></td>
+				<td><%= link_to "comment", new_expense_comment_path(expense) %></td>
 				         
 			</tr>
 			<% end %>
